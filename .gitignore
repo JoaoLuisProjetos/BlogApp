@@ -1,2 +1,2 @@
-.ideia*
-.blogapp/__pycache__*
+.idea*
+*.pyc
