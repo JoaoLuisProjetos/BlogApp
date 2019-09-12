@@ -4,7 +4,7 @@
 	<div class="post">
 
 		<h1>{{ post.title }}</h1>
-		
+
 		{% if post.published_date %}
 			<div class="date">
 				{{ post.published_date }}
@@ -12,6 +12,8 @@
 		{% endif %}
 
 		<h4>Author: {{ post.author}}</h4></br>
-		<p>{{ post.text | linebreaksbr}}</p>
+		<div class="text-desc">
+			<p>{{ post.text | linebreaksbr}}</p>
+		</div>
 </div>
 {% endblock %}
