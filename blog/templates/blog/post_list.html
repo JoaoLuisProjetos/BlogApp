@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-	<meta charset="UTF-8">
-	<title>My Blog</title>
-</head>
-<body>
-<h1><a href="">JL BLOG</a> </h1>
+{% extends "blog/base.html" %}
 
-{% for post in posts %}
-	<div>
-		<h2><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-		<h5>Published: {{ post.published_date }}</h5>
-		<p>{{ post.text | linebreaksbr }}</p>
-	</div>
-{% endfor %}
-</body>
-</html>
+{% block content %}
+
+	{% for post in posts %}
+		<div class="post">
+			<h2><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+			<div class="date">
+				<h5>Published: {{ post.published_date }}</h5>
+			</div>
+			<p>Many of our components require the use of JavaScript to function. Specifically, they require jQuery, Popper.js, and our own JavaScript plugins. Place the following "script>s near the end of your pages</p>
+		</div>
+	{% endfor %}
+
+{% endblock %}
