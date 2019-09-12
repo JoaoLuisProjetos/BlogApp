@@ -4,6 +4,9 @@ from . import views
 app_name = 'blog'
 urlpatterns =[
     # index
-    path('', views.post_list, name='post_list')
+    path('', views.post_list, name='post_list'),
+
+    # localhost/post/postID
+    path('post/<int:pk>', views.post_detail, name='post_detail'),
 
 ]

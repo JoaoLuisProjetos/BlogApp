@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<title>JL Blog</title>
+</head>
+<body>
+{% if post.published_date %}
+	<div>
+		{{ post.published_date }}
+	</div>
+{% endif %}
+<h1>{{ post.title }}</h1>
+<h4>Author: {{ post.author}}</h4>
+<p>{{ post.text | linebreaksbr}}</p>
+</body>
+</html>
