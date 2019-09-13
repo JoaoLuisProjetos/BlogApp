@@ -9,4 +9,7 @@ urlpatterns =[
     # localhost/post/postID
     path('post/<int:pk>', views.post_detail, name='post_detail'),
 
+
+    path('post/new/', views.post_new, name='post_new')
+
 ]
