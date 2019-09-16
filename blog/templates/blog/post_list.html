@@ -5,6 +5,10 @@
 	{% for post in posts %}
 		<div class="post">
 			<h2><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+			<span style="font-size: 20px; color: #3046ad;">
+			  <a href="{% url 'blog:post_edit' pk=post.pk %}"><i class="fas fa-pencil-alt"></i></a>
+				<i class="fas fa-trash"></i>
+			</span>
 			<div class="date">
 				<h5>Published: {{ post.published_date }}</h5>
 			</div>

@@ -4,6 +4,10 @@
 	<div class="post">
 
 		<h1>{{ post.title }}</h1>
+		<span style="font-size: 24px; color: #3046ad;">
+		  <a href="{% url 'blog:post_edit' pk=post.pk %}"><i class="fas fa-pencil-alt"></i></a>
+			<i class="fas fa-trash"></i>
+		</span>
 
 		{% if post.published_date %}
 			<div class="date">
@@ -14,7 +18,7 @@
 		<div class="author">
 			<h5>Author: {{ post.author}}</h5>
 		</div></br>
-		
+
 		<div class="text-desc">
 			<p>{{ post.text | linebreaksbr}}</p>
 		</div>
