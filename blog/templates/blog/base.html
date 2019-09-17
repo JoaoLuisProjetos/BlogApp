@@ -14,9 +14,12 @@
 <body>
 
 <div class="page-header">
+
 	{% if user.is_authenticated %}
-		<h1><a href="{% url 'blog:post_new' %}" ><button type="button" class="btn btn-primary" style="float:right;">+ New Post</button></a></h1>
+		<h1><a href="{% url 'blog:post_new' %}" ><button type="button" class="btn btn-primary">+ New Post</button></a></h1>
+		<h1><a href="{% url 'blog:post_drafts' %}" ><button type="button" class="btn btn-primary">Post Drafts</button></a></h1>
 	{% endif %}
+
 	<h1><a href="{% url 'blog:post_list' %}">Eazy Devs BLOG</a></h1>
 </div>
 

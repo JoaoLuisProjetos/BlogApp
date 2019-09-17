@@ -10,6 +10,10 @@
   text-decoration: none;
 }
 
+.page-header .btn-primary {
+float: right;
+}
+
 .content{
   margin-left: 60px;
 }
@@ -46,4 +50,8 @@ h3, h4 {
 
 .post-form-blog textarea, input {
   width:100%;
+}
+
+.post-form-blog h1 {
+  float: right;
 }
