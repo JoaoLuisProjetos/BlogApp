@@ -4,17 +4,24 @@
 
 	{% for post in posts %}
 		<div class="post">
+
+			{% if user.is_authenticated %}
+				<span class="crud-icons" style="float: right; font-size: 20pt; margin-right: 100px; ">
+					<a href="{% url 'blog:post_edit' pk=post.pk %}"><i class="fas fa-pencil-alt"></i></a>
+			 		<a href="{% url 'blog:post_list' %}"><i class="fas fa-trash"></i></a>
+				</span>
+			{% endif %}
+
 			<h2><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-			<span style="font-size: 20px; color: #3046ad;">
-			  <a href="{% url 'blog:post_edit' pk=post.pk %}"><i class="fas fa-pencil-alt"></i></a>
-				<i class="fas fa-trash"></i>
-			</span>
+
 			<div class="date">
 				<h5>Published: {{ post.published_date }}</h5>
 			</div>
+
 			<div class="text-desc">
 				<p>Many of our components require the use of JavaScript to function. Specifically, they require jQuery, Popper.js, and our own JavaScript plugins. Place the following "script>s near the end of your pages</p>
 			</div>
+
 		</div>
 	{% endfor %}
 

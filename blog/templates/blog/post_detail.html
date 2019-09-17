@@ -2,12 +2,16 @@
 
 {% block content %}
 	<div class="post">
+		
+		{% if user.is_authenticated %}
+		<span class="crud-icons" style="float: right; font-size: 20pt; margin-right: 100px; ">
+			<a href="{% url 'blog:post_edit' pk=post.pk %}"><i class="fas fa-pencil-alt"></i></a>
+			<a href="{% url 'blog:post_list' %}"><i class="fas fa-trash"></i></a>
+		</span>
+		{% endif %}
 
 		<h1>{{ post.title }}</h1>
-		<span style="font-size: 24px; color: #3046ad;">
-		  <a href="{% url 'blog:post_edit' pk=post.pk %}"><i class="fas fa-pencil-alt"></i></a>
-			<i class="fas fa-trash"></i>
-		</span>
+
 
 		{% if post.published_date %}
 			<div class="date">
