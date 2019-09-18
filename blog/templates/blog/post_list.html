@@ -21,7 +21,8 @@
 			<div class="text-desc">
 				<p>{{ post.text|truncatechars:200|linebreaksbr }}</p>
 			</div>
-			<h1><a href="{% url 'blog:post_detail' pk=post.pk %}" class="btn btn-primary">Read More</button></a></h1>
+			<h1><a href="{% url 'blog:post_detail' pk=post.pk %}" class="btn btn-primary">Read More . . .</button></a></h1>
+			<a href="{% url 'blog:post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count}}</button></a>
 		</div>
 	{% endfor %}
 
