@@ -18,10 +18,11 @@
 
 	<div class="top-menu">
 		{% if user.is_authenticated %}
+			<h5>Hello {{ user.username }} (<a href="{% url 'logout' %}">Logout</a>)</h5>
 			<h1><a href="{% url 'blog:post_new' %}" ><button type="button" class="btn btn-primary">+ New Post</button></a></h1>
 			<h1><a href="{% url 'blog:post_drafts' %}" ><button type="button" class="btn btn-primary">Post Drafts</button></a></h1>
 		{% else %}
-			<h1><a href="{% url 'blog:login' %}" ><button type="button" class="btn btn-primary">Login</button></a></h1>
+			<h1><a href="{% url 'login' %}" ><button type="button" class="btn btn-primary">Login</button></a></h1>
 		{% endif %}
 	</div>
 
