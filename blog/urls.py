@@ -20,4 +20,6 @@ urlpatterns =[
 
     # localhost:8080/post/ID/publish/
     path('post/<int:pk>/publish/', views.post_publish, name='post_publish'),
+
+    path('post/<int:pk>/comment/', views.comment_to_a_post, name='comment_to_a_post'),
 ]

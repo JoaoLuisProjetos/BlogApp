@@ -31,5 +31,27 @@
 		<div class="text-desc">
 			<p>{{ post.text | linebreaksbr}}</p>
 		</div>
-</div>
+
+	</div>
+
+	<hr>
+	<a href="{% url 'blog:comment_to_a_post' pk=post.pk  %}" class="btn btn-primary">Comment this Post</a>
+	<br>
+
+		{% for comment in post.comments.all %}
+			<div class="comment">
+				<strong>{{ comment.author }}</strong>
+
+				<div class="date">
+					{{ comment.created_date }}
+				</div>
+
+				<p>{{ comment.text }}</p>
+				<hr>
+			</div>
+		{% empty %}
+			<br>
+			<h4>No comments yet... add a comment!</h4>
+		{% endfor %}
+
 {% endblock %}
