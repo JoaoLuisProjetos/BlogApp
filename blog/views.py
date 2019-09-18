@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
-from .models import Post
+from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
 # Create your views here.
@@ -76,3 +76,13 @@ def comment_to_a_post(request,pk):
     else:
         form = CommentForm()
     return render(request, 'blog/comment_to_a_post.html', {'form':form})
+
+def post_remove(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('blog:post_list')
+
+def comment_remove(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.delete()
+    return redirect('blog:post_detail', pk=comment.post.pk)

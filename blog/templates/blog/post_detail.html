@@ -40,6 +40,7 @@
 
 		{% for comment in post.comments.all %}
 			<div class="comment">
+				<a href="{% url 'blog:comment_remove' pk=comment.pk %}" class="btn btn-danger">Delete<a>
 				<strong>{{ comment.author }}</strong>
 
 				<div class="date">
@@ -47,6 +48,7 @@
 				</div>
 
 				<p>{{ comment.text }}</p>
+
 				<hr>
 			</div>
 		{% empty %}

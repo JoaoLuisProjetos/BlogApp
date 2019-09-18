@@ -22,4 +22,8 @@ urlpatterns =[
     path('post/<int:pk>/publish/', views.post_publish, name='post_publish'),
 
     path('post/<int:pk>/comment/', views.comment_to_a_post, name='comment_to_a_post'),
+
+    path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
+
+    path('post/<int:pk>/remove/', views.post_remove, name='post_remove'),
 ]
