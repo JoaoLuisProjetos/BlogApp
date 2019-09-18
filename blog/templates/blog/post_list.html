@@ -1,18 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-	<meta charset="UTF-8">
-	<title>My Blog</title>
-</head>
-<body>
-<h1><a href="">JL BLOG</a> </h1>
+{% extends "blog/base.html" %}
 
-{% for post in posts %}
-	<div>
-		<h2><a href="">{{ post.title }}</a></h2>
-		<h5>Published: {{ post.published_date }}</h5>
-		<p>{{ post.text | linebreaksbr }}</p>
-	</div>
-{% endfor %}
-</body>
-</html>
+{% block content %}
+
+	{% for post in posts %}
+		<div class="post">
+
+			{% if user.is_authenticated %}
+				<span class="crud-icons" style="float: right; font-size: 20pt; margin-right: 100px; ">
+					<a href="{% url 'blog:post_edit' pk=post.pk %}"><i class="fas fa-pencil-alt"></i></a>
+			 		<a href="{% url 'blog:post_list' %}"><i class="fas fa-trash"></i></a>
+				</span>
+			{% endif %}
+
+			<h2><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+
+			<div class="date">
+				<h5>Published: {{ post.published_date }}</h5>
+			</div>
+
+			<div class="text-desc">
+				<p>{{ post.text|truncatechars:200|linebreaksbr }}</p>
+			</div>
+
+		</div>
+	{% endfor %}
+
+{% endblock %}

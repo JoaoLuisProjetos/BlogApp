@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+
+{% block title %} My Drafts {% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
+
+      {% if user.is_authenticated %}
+        <span class="crud-icons" style="float: right; font-size: 30pt; margin-right: 100px; ">
+          <a href=""><i class="fas fa-rocket"></i></a>
+          <a href="{% url 'blog:post_edit' pk=post.pk %}"><i class="fas fa-pencil-alt"></i></a>
+          <a href="{% url 'blog:post_list' %}"><i class="fas fa-trash"></i></a>
+        </span>
+      {% endif %}
+
+      <h2><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+
+      <div class="date">
+        <h5>Published: {{ post.published_date }}</h5>
+      </div>
+
+      <div class="text-desc">
+        <p>{{ post.text|truncatechars:150|linebreaksbr }}</p>
+      </div>
+
+    </div>
+  {% endfor %}
+{% endblock %}

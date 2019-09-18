@@ -1,0 +1,66 @@
+// coment. {
+   paleta de cores
+   Gainsboro #E1E1DC;
+   Perola #E4E6C3;
+   azul violeta : #4256B4;
+   nickel cinza #727574;
+   dark metal #272628;
+}
+.page-header {
+  background-color: #4256b4;
+  margin-top: 0;
+  padding: 20px 20px 20px 40px;
+}
+
+.page-header h1 a {
+  color: #ffffff;
+  font-size: 36pt;
+  text-decoration: none;
+}
+
+.page-header .btn-primary {
+  float: right;
+
+}
+
+.content{
+  margin-left: 60px;
+}
+
+h1, h2 {
+  font-size: 36px;
+  text-decoration: none;
+  font-family: 'Luckiest Guy', cursive !important;
+}
+
+h3, h4 {
+  font-size: 36px;
+  text-decoration: none;
+  font-family: 'Fjalla One', sans-serif !important;
+}
+
+.date, .author {
+  color: #828282;
+}
+
+.post {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.post h2 a {
+  color: #000000;
+}
+
+.text-desc p {
+  font-family: 'Lato', sans-serif;
+  color: #000000;
+}
+
+.post-form-blog textarea, input {
+  width:100%;
+}
+
+.post-form-blog h1 {
+  float: right;
+}
