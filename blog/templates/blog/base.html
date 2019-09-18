@@ -5,7 +5,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>My Blog</title>
+	<title>{% block title %}{% endblock %}</title>
 	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lato|Luckiest+Guy&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="{% static '/blog.css'%}">
@@ -15,10 +15,16 @@
 
 <div class="page-header">
 
-	{% if user.is_authenticated %}
-		<h1><a href="{% url 'blog:post_new' %}" ><button type="button" class="btn btn-primary">+ New Post</button></a></h1>
-		<h1><a href="{% url 'blog:post_drafts' %}" ><button type="button" class="btn btn-primary">Post Drafts</button></a></h1>
-	{% endif %}
+
+	<div class="top-menu">
+		{% if user.is_authenticated %}
+			<h1><a href="{% url 'blog:post_new' %}" ><button type="button" class="btn btn-primary">+ New Post</button></a></h1>
+			<h1><a href="{% url 'blog:post_drafts' %}" ><button type="button" class="btn btn-primary">Post Drafts</button></a></h1>
+		{% else %}
+			<h1><a href="{% url 'blog:login' %}" ><button type="button" class="btn btn-primary">Login</button></a></h1>
+		{% endif %}
+	</div>
+
 
 	<h1><a href="{% url 'blog:post_list' %}">Eazy Devs BLOG</a></h1>
 </div>

@@ -1,5 +1,13 @@
+// coment. {
+   paleta de cores
+   Gainsboro #E1E1DC;
+   Perola #E4E6C3;
+   azul violeta : #4256B4;
+   nickel cinza #727574;
+   dark metal #272628;
+}
 .page-header {
-  background-color: #3046ad;
+  background-color: #4256b4;
   margin-top: 0;
   padding: 20px 20px 20px 40px;
 }
@@ -11,7 +19,7 @@
 }
 
 .page-header .btn-primary {
-float: right;
+  float: right;
 }
 
 .content{
