@@ -31,5 +31,39 @@
 		<div class="text-desc">
 			<p>{{ post.text | linebreaksbr}}</p>
 		</div>
-</div>
+
+	</div>
+
+	<hr>
+	<a href="{% url 'blog:comment_to_a_post' pk=post.pk  %}" class="btn btn-primary">Comment this Post</a>
+	<br>
+
+		{% for comment in post.comments.all %}
+			{% if user.is_authenticated or comment.approved %}
+
+				<div class="comment">
+					{% if user.is_superuser %}
+						<a href="{% url 'blog:comment_remove' pk=comment.pk %}" class="btn btn-danger">Delete<a>
+					{% endif %}
+
+					{% if not comment.approved and user.is_superuser %}
+						<a href="{% url 'blog:comment_approve' pk=comment.pk %}" class="btn btn-danger">Approve<a>
+					{% endif %}
+
+					<strong>{{ comment.author }}</strong>
+
+					<div class="date">
+						{{ comment.created_date }}
+					</div>
+
+					<p>{{ comment.text }}</p>
+
+					<hr>
+				</div>
+			{% endif %}
+		{% empty %}
+			<br>
+			<h4>No comments yet... <br>Tell us what you think about this Post!</h4>
+		{% endfor %}
+
 {% endblock %}
