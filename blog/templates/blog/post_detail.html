@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load markdownify %}
 
 {% block title %} {{ post.title }} {% endblock %}
 
@@ -29,14 +30,18 @@
 		</div></br>
 
 		<div class="text-desc">
-			<p>{{ post.text | linebreaksbr}}</p>
+			<p>{{ post.text | markdown | safe | linebreaksbr}}</p>
 		</div>
 
 	</div>
 
 	<hr>
+	<h5>You can comment on code Language Style as following example:</h5>
+	<strong>```python</br>print('Hello World')</br>```</strong></br>
+	<hr>
+
 	<a href="{% url 'blog:comment_to_a_post' pk=post.pk  %}" class="btn btn-primary">Comment this Post</a>
-	<br>
+
 
 		{% for comment in post.comments.all %}
 			{% if user.is_authenticated or comment.approved %}
@@ -50,13 +55,13 @@
 						<a href="{% url 'blog:comment_approve' pk=comment.pk %}" class="btn btn-danger">Approve<a>
 					{% endif %}
 
-					<strong>{{ comment.author }}</strong>
+					<strong>{{ comment.author}}</strong>
 
 					<div class="date">
 						{{ comment.created_date }}
 					</div>
 
-					<p>{{ comment.text }}</p>
+					<p>{{ comment.text | markdown | safe | linebreaksbr}}</p>
 
 					<hr>
 				</div>
