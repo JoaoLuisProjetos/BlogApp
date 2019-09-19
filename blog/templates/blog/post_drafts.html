@@ -11,7 +11,8 @@
         <span class="crud-icons" style="float: right; font-size: 30pt; margin-right: 100px; ">
           <a href="{% url 'blog:post_publish' pk=post.pk %}"><i class="fas fa-rocket"></i></a>
           <a href="{% url 'blog:post_edit' pk=post.pk %}"><i class="fas fa-pencil-alt"></i></a>
-          <a href="{% url 'blog:post_remove' pk=post.pk %}"><i class="fas fa-trash"></i></a>
+          <a href="{% url 'blog:post_remove' pk=post.pk %}"
+          onclick="return confirm('Are you sure to delete POST {{ post.title }} ?')"><i class="fas fa-trash"></i></a>
         </span>
       {% endif %}
 
