@@ -21,7 +21,7 @@ def post_detail(request, pk):
 
 @login_required
 def post_new(request):
-    print(request.method)
+    #print(request.method)
     # POST
     if request.method == "POST":
         form = PostForm(request.POST)
