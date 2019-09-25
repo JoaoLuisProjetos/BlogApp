@@ -36,7 +36,7 @@ LOGOUT_REDIRECT_URL = 'blog:post_list'
 
 INSTALLED_APPS = [
     'crispy_forms',
-    'blog',
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
